@@ -1,0 +1,203 @@
+[
+  {
+    "idSistema": "OII-25-7004",
+    "folha": "10000",
+    "cliente": "Light",
+    "contrato": "4600010309",
+    "local": "Piraí",
+    "regional": "Barra do Pirai",
+    "atividades": [
+      {
+        "codigo": "3006974",
+        "descricao": "EXECUÇÃO DE MANOBRA PARA CONSTRUÇÃO",
+        "quantidade": 2,
+        "unidade": "MAN",
+        "precoUnitario": 150.51,
+        "criterio": "executado",
+        "tipoServico": "LINHA MORTA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "MAN"
+      }
+    ],
+    "valorTotal": 301.02,
+    "status": "aguardando_aprovacao",
+    "prioridade": "media",
+    "documentos": [],
+    "dataExecucao": "2025-04-02T03:06:28.000Z",
+    "dataEnvio": "2025-04-24T03:06:28.000Z",
+    "dataResposta": null,
+    "responsavel": "Flávio Luiz Paulino da Silva, 3146405",
+    "medida": 1,
+    "prazoAprovacao": "2025-04-24T03:06:28.000Z"
+  },
+  {
+    "idSistema": "OII-25-2037",
+    "folha": "10005",
+    "cliente": "Light",
+    "contrato": "4600010309",
+    "local": "Volta Redonda",
+    "regional": "Volta Redonda",
+    "atividades": [
+      {
+        "codigo": "3009281",
+        "descricao": "ATEND HORA EQUIPE LINHA VIVA PESADA",
+        "quantidade": 3,
+        "unidade": "H",
+        "precoUnitario": 898.2422601328437,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "OPEX",
+        "unidadeMedida": "H"
+      },
+      {
+        "codigo": "3010821",
+        "descricao": "INST DE CONJ CH FUSÍVEL C/EST-LV",
+        "quantidade": 1,
+        "unidade": "CJ",
+        "precoUnitario": 2130.7704043699837,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "CJ"
+      },
+      {
+        "codigo": "3007389",
+        "descricao": "SERV DE MONTAG UARs DIV. S/DESLOCAM-LV",
+        "quantidade": 1,
+        "unidade": "SV",
+        "precoUnitario": 435.47,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "SV"
+      }
+    ],
+    "valorTotal": 5260.967184768516,
+    "status": "aguardando_aprovacao",
+    "prioridade": "media",
+    "documentos": [],
+    "dataExecucao": "2025-04-03T03:06:28.000Z",
+    "dataEnvio": "2025-04-25T03:06:28.000Z",
+    "dataResposta": null,
+    "responsavel": "Flávio Luiz Paulino da Silva, 3146405",
+    "medida": 1,
+    "prazoAprovacao": "2025-04-25T03:06:28.000Z"
+  },
+  {
+    "idSistema": "OII-24-2129",
+    "folha": "10008",
+    "cliente": "Light",
+    "contrato": "4600010309",
+    "local": "Volta Redonda",
+    "regional": "Volta Redonda",
+    "atividades": [
+      {
+        "codigo": "3012515",
+        "descricao": "EXECUÇÃO DE MANOBRA PARA CONSTRUÇÃO - LV",
+        "quantidade": 1,
+        "unidade": "MAN",
+        "precoUnitario": 3285.05,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "MAN"
+      },
+      {
+        "codigo": "3007005",
+        "descricao": "NIVELAMENTO DE REDE MT - L V PARA CONSTR",
+        "quantidade": 19,
+        "unidade": "M",
+        "precoUnitario": 23.35,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "M"
+      },
+      {
+        "codigo": "3007390",
+        "descricao": "INSTALAÇÃO -SUBSTITUIÇÃO ESTRUTURA MT-LV",
+        "quantidade": 1,
+        "unidade": "EST",
+        "precoUnitario": 1960.04,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "EST"
+      },
+      {
+        "codigo": "3007391",
+        "descricao": "RETIRADA - SUBSTITUIÇÃO ESTRUTURA MT-LV",
+        "quantidade": 1,
+        "unidade": "EST",
+        "precoUnitario": 489.99,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "OPEX",
+        "unidadeMedida": "EST"
+      },
+      {
+        "codigo": "3007557",
+        "descricao": "SERV DE MONTAG UARs DIV C/DESLOCAM - LV",
+        "quantidade": 2,
+        "unidade": "SV",
+        "precoUnitario": 736.79,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "SV"
+      }
+    ],
+    "valorTotal": 7652.3099999999995,
+    "status": "aguardando_aprovacao",
+    "prioridade": "media",
+    "documentos": [],
+    "dataExecucao": "2025-04-08T03:06:28.000Z",
+    "dataEnvio": "2025-05-05T03:06:28.000Z",
+    "dataResposta": null,
+    "responsavel": "Flávio Luiz Paulino da Silva, 3146405",
+    "medida": 1,
+    "prazoAprovacao": "2025-05-05T03:06:28.000Z"
+  },
+  {
+    "idSistema": "OII-24-2146",
+    "folha": "10012",
+    "cliente": "Light",
+    "contrato": "4600010309",
+    "local": "Barra Mansa",
+    "regional": "Volta Redonda",
+    "atividades": [
+      {
+        "codigo": "3010821",
+        "descricao": "INST DE CONJ CH FUSÍVEL C/EST-LV",
+        "quantidade": 1,
+        "unidade": "CJ",
+        "precoUnitario": 2130.77,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "CAPEX",
+        "unidadeMedida": "CJ"
+      },
+      {
+        "codigo": "3001874",
+        "descricao": "SERVIÇO DE PEQUENA MONTA COM L V",
+        "quantidade": 3,
+        "unidade": "SV",
+        "precoUnitario": 736.79,
+        "criterio": "executado",
+        "tipoServico": "LINHA VIVA",
+        "dispendio": "OPEX",
+        "unidadeMedida": "SV"
+      }
+    ],
+    "valorTotal": 4341.139999999999,
+    "status": "aguardando_aprovacao",
+    "prioridade": "media",
+    "documentos": [],
+    "dataExecucao": "2025-04-10T03:06:28.000Z",
+    "dataEnvio": "2025-05-05T03:06:28.000Z",
+    "dataResposta": null,
+    "responsavel": "Flávio Luiz Paulino da Silva, 3146405",
+    "medida": 1,
+    "prazoAprovacao": "2025-05-05T03:06:28.000Z"
+  }
+]
