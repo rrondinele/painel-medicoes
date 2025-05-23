@@ -106,127 +106,128 @@ export default function MedicaoTable({ medicoes, onMedicaoUpdated }: MedicaoTabl
 
   return (
     <>
-      {/*</><div className="rounded-md border">*/}
-      <div className="rounded-md border overflow-x-auto">
-
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Projeto</TableHead>
-              <TableHead>Concessionária</TableHead>
-              <TableHead>Regional</TableHead>
-              <TableHead>Valor</TableHead>
-              <TableHead>Data Execução</TableHead>
-              <TableHead>Folha Medição</TableHead>
-              <TableHead>Tec. Resp. Concessionária</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-left">Ações</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {medicoes.map((medicao) => (
-              <TableRow key={`${medicao.idSistema}-${medicao.medida}`}>
-                <TableCell className="font-medium">{medicao.idSistema}</TableCell>
-                <TableCell>
-                <ConcessionariaBadge concessionaria={medicao.cliente} />
-                </TableCell>              
-                <TableCell>{medicao.regional || 'N/A'}</TableCell>
-                <TableCell>
-                  {new Intl.NumberFormat('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL'
-                  }).format(medicao.valorTotal)}
-                </TableCell>
-                <TableCell>
-                  {new Date(medicao.dataExecucao).toLocaleDateString('pt-BR')}
-                </TableCell>
-                <TableCell>{medicao.folha}</TableCell>
-                <TableCell>{medicao.responsavel}</TableCell>
-                <TableCell>
-                  <StatusBadge status={medicao.status} />
-                </TableCell>
-                <TableCell className="text-right">
-                  <div className="flex justify-end space-x-2">
-                    {medicao.status === 'pendente_envio' && (
-                      <Button
-                        size="sm"
-                        className="flex justify-center bg-blue-600 hover:bg-blue-700 text-white w-9"
-                        onClick={() => {
-                          console.log(`Nova Medição para ${medicao.idSistema}`)
-                        }}
-                        title="Nova Medição"
-                      >
-                        <PlusCircle className="h-4 w-4" />
-                      </Button>
-                    )}
-                    <div className="hidden md:flex space-x-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleView(medicao)}
-                        title="Visualizar"
-                      >
-                        <Eye className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleEdit(medicao)}
-                        title="Editar"
-                        disabled={medicao.status === 'aprovado'}
-                      >
-                        <FileEdit className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleDownload(medicao)}
-                        title="Download"
-                      >
-                        <Download className="h-4 w-4" />
-                      </Button>
-                    </div>
-
-                    <div className="md:hidden">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="outline" className="h-8 w-8 p-0">
-                            <MoreHorizontal className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          {medicao.status === 'pendente_envio' && (
-                            <DropdownMenuItem onClick={() => console.log(`Nova Medição para ${medicao.idSistema}`)}>
-                              <PlusCircle className="mr-2 h-4 w-4" />
-                              Nova Medição
-                            </DropdownMenuItem>
-                          )}
-                          <DropdownMenuItem onClick={() => handleView(medicao)}>
-                            <Eye className="mr-2 h-4 w-4" />
-                            Visualizar
-                          </DropdownMenuItem>
-                          <DropdownMenuItem 
-                            onClick={() => handleEdit(medicao)}
-                            disabled={medicao.status === 'aprovado'}
-                          >
-                            <FileEdit className="mr-2 h-4 w-4" />
-                            Editar
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleDownload(medicao)}>
-                            <Download className="mr-2 h-4 w-4" />
-                            Download
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </div>
-                  </div>
-                </TableCell>
+      <div className="rounded-md border">
+        <div className="relative max-h-[600px] overflow-auto">
+          <Table className="min-w-full">
+            <TableHeader className="sticky top-0 bg-white z-10 shadow-sm">
+              <TableRow>
+                <TableHead className="sticky top-0 bg-white z-10">Projeto</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Tipo Projeto</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Concessionária</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Regional</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Valor</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Data Execução</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Folha Medição</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Tec. Resp. Concessionária</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10">Status</TableHead>
+                <TableHead className="sticky top-0 bg-white z-10 text-left">Ações</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+            </TableHeader>
+            <TableBody>
+              {medicoes.map((medicao) => (
+                <TableRow key={`${medicao.idSistema}-${medicao.folha}-${new Date(medicao.dataExecucao).getTime()}`}>
+                  <TableCell className="font-medium">{medicao.idSistema}</TableCell>
+                  <TableCell>{medicao.tipoProjeto || 'N/A'}</TableCell>                  
+                  <TableCell>
+                  <ConcessionariaBadge concessionaria={medicao.cliente} />
+                  </TableCell>
+                  <TableCell>{medicao.regional || 'N/A'}</TableCell>
+                  <TableCell>
+                    {new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL'
+                    }).format(medicao.valorTotal)}
+                  </TableCell>
+                  <TableCell>
+                    {new Date(medicao.dataExecucao).toLocaleDateString('pt-BR')}
+                  </TableCell>
+                  <TableCell>{medicao.folha}</TableCell>
+                  <TableCell>{medicao.responsavel}</TableCell>
+                  <TableCell>
+                    <StatusBadge status={medicao.status} />
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <div className="flex justify-end space-x-2">
+                      {medicao.status === 'pendente_envio' && (
+                        <Button
+                          size="sm"
+                          className="flex justify-center bg-blue-600 hover:bg-blue-700 text-white w-9"
+                          onClick={() => {
+                            console.log(`Nova Medição para ${medicao.idSistema}`)
+                          }}
+                          title="Nova Medição"
+                        >
+                          <PlusCircle className="h-4 w-4" />
+                        </Button>
+                      )}
+                      <div className="hidden md:flex space-x-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleView(medicao)}
+                          title="Visualizar"
+                        >
+                          <Eye className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleEdit(medicao)}
+                          title="Editar"
+                          disabled={medicao.status === 'aprovado'}
+                        >
+                          <FileEdit className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleDownload(medicao)}
+                          title="Download"
+                        >
+                          <Download className="h-4 w-4" />
+                        </Button>
+                      </div>
 
+                      <div className="md:hidden">
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="h-8 w-8 p-0">
+                              <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            {medicao.status === 'pendente_envio' && (
+                              <DropdownMenuItem onClick={() => console.log(`Nova Medição para ${medicao.idSistema}`)}>
+                                <PlusCircle className="mr-2 h-4 w-4" />
+                                Nova Medição
+                              </DropdownMenuItem>
+                            )}
+                            <DropdownMenuItem onClick={() => handleView(medicao)}>
+                              <Eye className="mr-2 h-4 w-4" />
+                              Visualizar
+                            </DropdownMenuItem>
+                            <DropdownMenuItem 
+                              onClick={() => handleEdit(medicao)}
+                              disabled={medicao.status === 'aprovado'}
+                            >
+                              <FileEdit className="mr-2 h-4 w-4" />
+                              Editar
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleDownload(medicao)}>
+                              <Download className="mr-2 h-4 w-4" />
+                              Download
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
       {/* Modal de detalhes */}
       <Dialog
         open={action === 'view' && !!selectedMedicao}
@@ -269,16 +270,28 @@ export default function MedicaoTable({ medicoes, onMedicaoUpdated }: MedicaoTabl
                         </span>
                       </div>
                       <div className="flex justify-between">
+                        <span className="text-muted-foreground">Contrato:</span>
+                        <span className="font-medium">{selectedMedicao.contrato || 'N/A'}</span>
+                      </div>
+                      <div className="flex justify-between">
                         <span className="text-muted-foreground">Local:</span>
                         <span className="font-medium">{selectedMedicao.local}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Responsável:</span>
-                        <span className="font-medium">{selectedMedicao.responsavel}</span>
+                        <span className="text-muted-foreground">PI:</span>
+                        <span className="font-medium">{selectedMedicao.pi || ''}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Contrato:</span>
-                        <span className="font-medium">{selectedMedicao.contrato || 'N/A'}</span>
+                        <span className="text-muted-foreground">Circuito:</span>
+                        <span className="font-medium">{selectedMedicao.circuito || ''}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Zona:</span>
+                        <span className="font-medium">{selectedMedicao.zona || ''}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Responsável:</span>
+                        <span className="font-medium">{selectedMedicao.responsavel}</span>
                       </div>
                     </div>
                   </div>
@@ -310,7 +323,6 @@ export default function MedicaoTable({ medicoes, onMedicaoUpdated }: MedicaoTabl
                     </div>
                   </div>
                 </div>
-
                 <div className="space-y-4">
                   <div className="rounded-lg border p-4">
                     <h3 className="font-semibold text-lg mb-3">Datas</h3>
@@ -365,6 +377,7 @@ export default function MedicaoTable({ medicoes, onMedicaoUpdated }: MedicaoTabl
                   <TableHead>Quantidade</TableHead>
                   <TableHead>Valor Unitário</TableHead>
                   <TableHead>Total</TableHead>
+                  <TableHead>Observação</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -388,6 +401,7 @@ export default function MedicaoTable({ medicoes, onMedicaoUpdated }: MedicaoTabl
                               currency: 'BRL',
                             }).format(atividade.quantidade * atividade.precoUnitario)}
                           </TableCell>
+                          <TableCell>{atividade.observacao}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>

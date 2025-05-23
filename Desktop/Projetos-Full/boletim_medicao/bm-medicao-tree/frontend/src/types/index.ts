@@ -1,6 +1,6 @@
 export type DateRange = {
-  from?: Date;
-  to?: Date;
+  from?: Date | null;
+  to?: Date | null;
 };
 
 export interface Filters {

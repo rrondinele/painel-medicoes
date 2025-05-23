@@ -53,14 +53,24 @@ export default function PainelMedicoes() {
           idSistema: item.idSistema,
           folha: item.folha,
           cliente: item.cliente,
+          tipoProjeto: item.tipoProjeto,
           contrato: item.contrato,
           local: item.local,
           regional: item.regional || '',
+          circuito: item.circuito || '',       // Nova propriedade
+          reserva: item.reserva || '',         // Nova propriedade
+          ntc: item.ntc || '',                 // Nova propriedade
+          pi: item.pi || '',                   // Nova propriedade
+          ks: item.ks || '',                   // Nova propriedade
+          cf: item.cf || '',                   // Nova propriedade
+          zona: item.zona || '',               // Nova propriedade
+          observacao: item.observacao || '',   // Nova propriedade
           atividades: item.atividades.map((a: any) => ({
             ...a,
             criterio: ['equipamento', 'executado', 'documentado'].includes(a.criterio)
               ? a.criterio
               : 'executado',
+            observacao: a.observacao || ''
           })),
           valorTotal: item.valorTotal,
           status: allowedStatus.includes(item.status) ? item.status : 'pendente_envio',
@@ -106,8 +116,7 @@ export default function PainelMedicoes() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow">
-        {/*<div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">*/}
-        <div className="w-full max-w-[1450px] mx-auto px-6 py-4 flex justify-between items-center"> 
+        <div className="w-full max-w-[1700px] mx-auto px-6 py-4 flex justify-between items-center"> 
           <div>
             <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
               <Building2 className="w-6 h-6 text-blue-600" />
@@ -123,9 +132,8 @@ export default function PainelMedicoes() {
           </div>
         </div>
       </header>
-
       {/*<main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">*/}
-      <main className="w-full max-w-[1450px] mx-auto px-6 py-6">
+      <main className="w-full max-w-[1700px] mx-auto px-6 py-6">
         <MetricsDashboard medicoes={filteredMedicoes} />
         <div className="my-6 bg-white p-4 rounded-lg shadow">
           <div className="flex flex-wrap items-start justify-between gap-4 mb-4">

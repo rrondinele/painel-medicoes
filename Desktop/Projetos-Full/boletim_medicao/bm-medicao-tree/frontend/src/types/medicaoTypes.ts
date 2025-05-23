@@ -28,7 +28,9 @@ export interface Atividade {
   criterio: 'equipamento' | 'executado' | 'documentado';
   tipoServico?: string;       
   dispendio?: string;         
-  unidadeMedida?: string;     
+  unidadeMedida?: string;
+  circuito?: string;          // Nova coluna
+  observacao?: string;       // Nova coluna     
 }
 
 export interface Documento {
@@ -43,8 +45,17 @@ export interface Medicao {
   folha: string;
   cliente: Concessionaria;
   contrato: string;
+  tipoProjeto: string;
   local: string;
   regional: string;
+  circuito: string;          // Nova coluna
+  reserva: string;           // Nova coluna
+  ntc: string;               // Nova coluna
+  pi: string;                // Nova coluna
+  ks: string;                // Nova coluna
+  cf: string;                // Nova coluna
+  zona: string;              // Nova coluna
+  observacao: string;        // Nova coluna
   atividades: Atividade[];
   valorTotal: number;
   status: StatusMedicao;
